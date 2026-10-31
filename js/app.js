@@ -165,6 +165,59 @@ if (window.top !== window.self) { try { window.top.location = window.self.locati
     initVehicleMap();
   }
 
+  // Feedback / missing-info form (GitHub Issues) -------------------------
+  const feedbackForm = document.getElementById("feedbackForm");
+  const FEEDBACK_REPO = "routermurti/ozsuyolyard-m";
+  if (feedbackForm) {
+    feedbackForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const fd = new FormData(feedbackForm);
+      const name = safeText(fd.get("name")).trim();
+      const note = safeText(fd.get("note")).trim();
+      const checked = Array.from(feedbackForm.querySelectorAll('input[type="checkbox"]:checked')).map(function (cb) { return cb.value; });
+      const checkedRegions = Array.from(feedbackForm.querySelectorAll('input[name="region"]:checked')).map(function (cb) { return cb.value; });
+      const checkedContacts = Array.from(feedbackForm.querySelectorAll('input[name="contact"]:checked')).map(function (cb) { return cb.value; });
+
+      const title = checked.length
+        ? "Eksik bilgi bildirimi: " + checked.slice(0, 3).join(", ") + (checked.length > 3 ? " (+" + (checked.length - 3) + ")" : "")
+        : "Eksik bilgi bildirimi: Genel geri bildirim";
+
+      const bodyLines = [];
+      bodyLines.push("### İşaretlenen eksik bilgiler");
+      bodyLines.push("");
+      if (checkedRegions.length) {
+        bodyLines.push("**Hizmet bölgeleri / vilayetler**");
+        checkedRegions.forEach(function (v) { bodyLines.push("- [x] " + v); });
+        bodyLines.push("");
+      }
+      if (checkedContacts.length) {
+        bodyLines.push("**İletişim kanalları**");
+        checkedContacts.forEach(function (v) { bodyLines.push("- [x] " + v); });
+        bodyLines.push("");
+      }
+      if (!checked.length) {
+        bodyLines.push("- (İşaretlenen madde yok)");
+        bodyLines.push("");
+      }
+      bodyLines.push("### Ek not");
+      bodyLines.push(note || "—");
+      bodyLines.push("");
+      bodyLines.push("### Gönderen");
+      bodyLines.push(name || "Anonim");
+      bodyLines.push("");
+      bodyLines.push("---");
+      bodyLines.push("Otomatik taslak: Özsu web sitesi geri bildirim formu.");
+
+      const params = new URLSearchParams();
+      params.set("title", title);
+      params.set("body", bodyLines.join("\n"));
+      params.set("labels", "feedback,missing-info");
+
+      const url = "https://github.com/" + FEEDBACK_REPO + "/issues/new?" + params.toString();
+      window.open(url, "_blank", "noopener,noreferrer");
+    });
+  }
+
   // Contact form ----------------------------------------------------------
   const form = document.getElementById("contactForm");
   if (form) {

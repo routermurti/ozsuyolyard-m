@@ -32,6 +32,7 @@
         <a href="#haberler">Son Haberler</a>
         <a href="#galeri">Galeri</a>
         <a href="#sss">SSS</a>
+         <a href="#geri-bildirim">Geri Bildirim</a>
         <a href="#iletisim" class="nav-cta">İletişim</a>
       </nav>
     </div>
@@ -54,7 +55,7 @@
           </div>
           <ul class="hero-stats" aria-label="Öne çıkan bilgiler">
             <li><strong data-count="40">0</strong><span>Yılı aşkın tecrübe</span></li>
-            <li><strong data-count="7 Gün">0</strong><span>24 saat acil destek</span></li>
+            <li><strong data-count="7">0</strong><span>/24 acil destek</span></li>
             <li><strong data-count="6">0</strong><span>Farklı hizmet türü</span></li>
           </ul>
         </div>
@@ -222,6 +223,59 @@
       </div>
     </section>
 
+    <section class="section section-light" id="geri-bildirim" aria-labelledby="feedbackTitle">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Geri Bildirim</span>
+          <h2 id="feedbackTitle">Eksik Bilgileri Bildirin</h2>
+          <p>Sitede henüz netleşmemiş bilgileri işaretleyip GitHub Issues üzerinden gönderebilirsiniz. Bildirimler <a href="https://github.com/routermurti/ozsuyolyard-m/issues" target="_blank" rel="noopener noreferrer">repo Issues</a> sayfasında görünür.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-card reveal">
+            <h3>Nasıl çalışır?</h3>
+            <ul class="feedback-howto">
+              <li>Eksik olduğunu düşündüğünüz bilgileri işaretleyin.</li>
+              <li>Varsa ek notunuzu yazın.</li>
+              <li>“GitHub’a Gönder” ile yeni bir Issue sayfası açılır; orada onaylayıp gönderirsiniz.</li>
+              <li>Gönderilen talepler repo Issues sayfasında listelenir.</li>
+            </ul>
+            <div class="contact-actions">
+              <a class="btn btn-primary" href="https://github.com/routermurti/ozsuyolyard-m/issues" target="_blank" rel="noopener noreferrer">Bildirimleri Görüntüle</a>
+              <a class="btn btn-ghost" href="https://github.com/routermurti/ozsuyolyard-m/issues/new/choose" target="_blank" rel="noopener noreferrer">GitHub Formunu Aç</a>
+            </div>
+          </div>
+          <form class="contact-form reveal" id="feedbackForm" autocomplete="on">
+            <h3>Eksik Bilgi Formu</h3>
+            <p class="form-hint">İşaretledikleriniz GitHub Issue içeriğine otomatik eklenir.</p>
+            <fieldset class="feedback-group">
+              <legend>Hizmet bölgeleri / vilayetler</legend>
+              <label class="check-row"><input type="checkbox" name="region" value="Hangi şehir ve ilçelere hizmet verilmektedir?" /> Hangi şehir ve ilçelere hizmet verilmektedir?</label>
+              <label class="check-row"><input type="checkbox" name="region" value="Şehirler arası taşıma yapılan güzergahlar" /> Şehirler arası taşıma yapılan güzergahlar</label>
+              <label class="check-row"><input type="checkbox" name="region" value="Tahmini varış / ulaşım süreleri" /> Tahmini varış / ulaşım süreleri</label>
+              <label class="check-row"><input type="checkbox" name="region" value="Hizmet bölgesi dışına taşıma yapılabilir mi?" /> Hizmet bölgesi dışına taşıma yapılabilir mi?</label>
+            </fieldset>
+            <fieldset class="feedback-group">
+              <legend>İletişim kanalları</legend>
+              <label class="check-row"><input type="checkbox" name="contact" value="E-posta adresi" /> E-posta adresi</label>
+              <label class="check-row"><input type="checkbox" name="contact" value="WhatsApp numarası ve QR kod" /> WhatsApp numarası ve QR kod</label>
+              <label class="check-row"><input type="checkbox" name="contact" value="Sosyal medya hesap linkleri" /> Sosyal medya hesap linkleri</label>
+              <label class="check-row"><input type="checkbox" name="contact" value="Ofis / sanayi sitesi adresi ve konum (harita)" /> Ofis / sanayi sitesi adresi ve konum (harita)</label>
+            </fieldset>
+            <label>
+              <span>Ek not (isteğe bağlı)</span>
+              <textarea name="note" maxlength="600" rows="3" placeholder="Varsa eklemek istediğiniz detay..."></textarea>
+            </label>
+            <label>
+              <span>Adınız (isteğe bağlı)</span>
+              <input type="text" name="name" maxlength="80" placeholder="Ad Soyad" />
+            </label>
+            <button class="btn btn-primary" type="submit">GitHub’a Gönder</button>
+            <p class="form-hint">Gönderim, GitHub Issue sayfasını yeni sekmede açar. Son adımda GitHub’da onaylarsınız.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="iletisim" aria-labelledby="contactTitle">
       <div class="container">
         <div class="section-head reveal">
@@ -280,7 +334,8 @@
       <div class="footer-links">
         <a href="tel:+905324238653">0532 423 86 53</a>
         <a href="#iletisim">İletişim</a>
-        <a href="#haberler">Haberler</a>
+        <a href="#geri-bildirim">Geri Bildirim</a>
+         <a href="#haberler">Haberler</a>
       </div>
       <p class="footer-credit">© <span id="year"></span> Özsu Oto Kurtarma Afyon. Tüm hakları saklıdır. — Created By RouterMurti</p>
     </div>

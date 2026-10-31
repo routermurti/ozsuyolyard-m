@@ -423,3 +423,13 @@ button { font: inherit; }
 .truck-status { color: #cbd5e1; }
 
 
+
+/* --- Feedback form --- */
+.btn-ghost { background: transparent; border: 1px solid var(--card-border); color: var(--text); }
+.btn-ghost:hover { background: rgba(127,127,127,.08); transform: translateY(-2px); }
+.feedback-howto { margin: 0; padding-left: 1.2rem; color: var(--muted); }
+.feedback-howto li { margin-bottom: .4rem; }
+.feedback-group { border: 1px solid var(--card-border); border-radius: 12px; padding: 1rem; margin: 0; }
+.feedback-group legend { padding: 0 .4rem; font-weight: 600; color: inherit; }
+.check-row { display: flex; align-items: center; gap: .6rem; padding: .45rem 0; color: inherit; cursor: pointer; font-size: .95rem; }
+.check-row input { width: 18px; height: 18px; accent-color: var(--accent); flex: 0 0 auto; }

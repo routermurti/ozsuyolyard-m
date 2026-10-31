@@ -1,0 +1,41 @@
+name: Eksik Bilgi Bildirimi
+description: Özsu Oto Kurtarma web sitesinde eksik olduğunu düşündüğünüz bilgileri bildirin.
+title: "[Eksik Bilgi] "
+labels: ["feedback", "missing-info"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Özsu Oto Kurtarma web sitesinde eksik olduğunu düşündüğünüz bilgileri işaretleyin.
+        Gönderdiğiniz talepler repo Issues sayfasından takip edilebilir.
+  - type: checkboxes
+    id: regions
+    attributes:
+      label: Hizmet bölgeleri / vilayetler
+      description: Eksik olduğunu düşündüğünüz bölge bilgilerini işaretleyin.
+      options:
+        - label: Hangi şehir ve ilçelere hizmet verilmektedir?
+        - label: Şehirler arası taşıma yapılan güzergahlar
+        - label: Tahmini varış / ulaşım süreleri
+        - label: Hizmet bölgesi dışına taşıma yapılabilir mi?
+  - type: checkboxes
+    id: contact
+    attributes:
+      label: İletişim kanalları
+      description: Eksik olduğunu düşündüğünüz iletişim bilgilerini işaretleyin.
+      options:
+        - label: E-posta adresi
+        - label: WhatsApp numarası ve QR kod
+        - label: Sosyal medya hesap linkleri
+        - label: Ofis / sanayi sitesi adresi ve konum (harita)
+  - type: textarea
+    id: note
+    attributes:
+      label: Ek not
+      description: Varsa eklemek istediğiniz detaylar.
+      placeholder: Ek detay...
+  - type: input
+    id: name
+    attributes:
+      label: Adınız (isteğe bağlı)
+      placeholder: Ad Soyad
