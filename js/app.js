@@ -174,28 +174,28 @@ if (window.top !== window.self) { try { window.top.location = window.self.locati
       const fd = new FormData(feedbackForm);
       const name = safeText(fd.get("name")).trim();
       const note = safeText(fd.get("note")).trim();
-      const checked = Array.from(feedbackForm.querySelectorAll('input[type="checkbox"]:checked')).map(function (cb) { return cb.value; });
-      const checkedRegions = Array.from(feedbackForm.querySelectorAll('input[name="region"]:checked')).map(function (cb) { return cb.value; });
-      const checkedContacts = Array.from(feedbackForm.querySelectorAll('input[name="contact"]:checked')).map(function (cb) { return cb.value; });
+      const groups = [];
+      feedbackForm.querySelectorAll("fieldset.feedback-group").forEach(function (fs) {
+        const legendEl = fs.querySelector("legend");
+        const legend = legendEl ? legendEl.textContent.trim() : "Genel";
+        const checkedItems = Array.from(fs.querySelectorAll('input[type="checkbox"]:checked')).map(function (cb) { return cb.value; });
+        if (checkedItems.length) groups.push({ legend: legend, items: checkedItems });
+      });
+      const checked = groups.reduce(function (all, g) { return all.concat(g.items); }, []);
 
       const title = checked.length
-        ? "Eksik bilgi bildirimi: " + checked.slice(0, 3).join(", ") + (checked.length > 3 ? " (+" + (checked.length - 3) + ")" : "")
+        ? "Eksik bilgi bildirimi: " + checked.length + " madde seçildi"
         : "Eksik bilgi bildirimi: Genel geri bildirim";
 
       const bodyLines = [];
       bodyLines.push("### İşaretlenen eksik bilgiler");
       bodyLines.push("");
-      if (checkedRegions.length) {
-        bodyLines.push("**Hizmet bölgeleri / vilayetler**");
-        checkedRegions.forEach(function (v) { bodyLines.push("- [x] " + v); });
+      groups.forEach(function (g) {
+        bodyLines.push("**" + g.legend + "**");
+        g.items.forEach(function (v) { bodyLines.push("- [x] " + v); });
         bodyLines.push("");
-      }
-      if (checkedContacts.length) {
-        bodyLines.push("**İletişim kanalları**");
-        checkedContacts.forEach(function (v) { bodyLines.push("- [x] " + v); });
-        bodyLines.push("");
-      }
-      if (!checked.length) {
+      });
+      if (checked.length === 0) {
         bodyLines.push("- (İşaretlenen madde yok)");
         bodyLines.push("");
       }

@@ -9,6 +9,17 @@ body:
         Özsu Oto Kurtarma web sitesinde eksik olduğunu düşündüğünüz bilgileri işaretleyin.
         Gönderdiğiniz talepler repo Issues sayfasından takip edilebilir.
   - type: checkboxes
+    id: price
+    attributes:
+      label: Fiyat / ücret tarifesi
+      description: Not - Fiyatlar bölge, mesafe, araç tipi ve koşullara göre değişiklik gösterir.
+      options:
+        - label: Çekici ücret tarifesi (sabit / başlangıç ücret)
+        - label: Km başı ücret
+        - label: Gece / hafta sonu / tatil farkı
+        - label: Ağır araç / karavan taşıma fark ücreti
+        - label: Ödeme şekli (nakit, kart, EFT)
+  - type: checkboxes
     id: regions
     attributes:
       label: Hizmet bölgeleri / vilayetler
@@ -19,6 +30,27 @@ body:
         - label: Tahmini varış / ulaşım süreleri
         - label: Hizmet bölgesi dışına taşıma yapılabilir mi?
   - type: checkboxes
+    id: vehicle
+    attributes:
+      label: Araç tipi / taşıma kapasitesi
+      description: Eksik olduğunu düşündüğünüz araç/taşıma bilgilerini işaretleyin.
+      options:
+        - label: Taşınabilen araç tipleri (binek, SUV, ticari)
+        - label: Ağır araç / minibüs / kamyonet taşıma kapasitesi
+        - label: Karavan ve klasik araç taşıma koşulları
+        - label: Maksimum tonaj / ağırlık limiti
+        - label: Özel ekipman (kurtarıcı / vinç) bilgisi
+  - type: checkboxes
+    id: insurance
+    attributes:
+      label: Sigorta / sorumluluk
+      description: Eksik olduğunu düşündüğünüz sigorta/sorumluluk bilgilerini işaretleyin.
+      options:
+        - label: Taşıma sigortası kapsamı
+        - label: Hasar / kaza durumunda prosedür
+        - label: Sorumluluk ve güvence bilgileri
+        - label: Sigorta belgeleri / poliçe detayları
+  - type: checkboxes
     id: contact
     attributes:
       label: İletişim kanalları
@@ -28,6 +60,47 @@ body:
         - label: WhatsApp numarası ve QR kod
         - label: Sosyal medya hesap linkleri
         - label: Ofis / sanayi sitesi adresi ve konum (harita)
+  - type: checkboxes
+    id: gallery
+    attributes:
+      label: Galeri / filo fotoğrafları
+      description: Eksik olduğunu düşündüğünüz görsel içerik bilgilerini işaretleyin.
+      options:
+        - label: Gerçek çekici fotoğrafları
+        - label: Filo ve ekipman fotoğrafları
+        - label: Hizmet anı fotoğrafları
+        - label: Video tanıtım / sosyal medya içerikleri
+  - type: checkboxes
+    id: corporate
+    attributes:
+      label: Kurumsal bilgiler
+      description: Eksik olduğunu düşündüğünüz kurumsal bilgileri işaretleyin.
+      options:
+        - label: Firma unvanı ve yetkili
+        - label: Vergi no / MERSİS bilgisi
+        - label: Resmi adres ve çalışma yeri
+        - label: Kuruluş yılı / deneyim detayı
+        - label: Fatura / resmi belgeler
+  - type: checkboxes
+    id: legal
+    attributes:
+      label: Yasal sayfalar
+      description: Eksik olduğunu düşündüğünüz yasal bilgileri işaretleyin.
+      options:
+        - label: KVKK / aydınlatma metni
+        - label: Gizlilik politikası
+        - label: Kullanım şartları
+        - label: Çerez politikası
+  - type: checkboxes
+    id: reviews
+    attributes:
+      label: Yorumlar / referanslar
+      description: Eksik olduğunu düşündüğünüz yorum/referans bilgilerini işaretleyin.
+      options:
+        - label: Müşteri yorumları
+        - label: Google yorum / puan linki
+        - label: Başarı hikayeleri / referanslar
+        - label: Fotoğraflı müşteri deneyimleri
   - type: textarea
     id: note
     attributes:
